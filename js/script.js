@@ -198,91 +198,91 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ========================================================
-       7. CAROUSEL POPULATION
+       7. CAROUSEL POPULATION (Updated Fallback Images)
        ======================================================== */
 
-    // Fallback movie data (used when no TMDB key is set)
+    // Replaced dead/blank links with working cinematic images
     const FALLBACK_MOVIES = [
         {
             id: 1, title: 'The Dark Knight',
-            thumb: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=500&q=70',
-            backdrop: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=1200&q=80',
+            thumb: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=500&q=80',
+            backdrop: 'https://images.unsplash.com/photo-1509347528160-9a9e33742cdb?w=1200&q=80',
             overview: 'Batman faces the Joker in Gotham City, a battle that tests his resolve to protect the city without becoming a vigilante above the law.',
             genres: ['Action', 'Crime', 'Drama'], match: 98, rating: 'U/A 15+', year: 2008
         },
         {
             id: 2, title: 'Inception',
-            thumb: 'https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?w=500&q=70',
-            backdrop: 'https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?w=1200&q=80',
+            thumb: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=500&q=80',
+            backdrop: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=1200&q=80',
             overview: 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.',
             genres: ['Action', 'Sci-Fi', 'Thriller'], match: 97, rating: 'U/A 13+', year: 2010
         },
         {
             id: 3, title: 'Interstellar',
-            thumb: 'https://images.unsplash.com/photo-1585951237318-9ea5e175b891?w=500&q=70',
-            backdrop: 'https://images.unsplash.com/photo-1585951237318-9ea5e175b891?w=1200&q=80',
+            thumb: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&q=80',
+            backdrop: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&q=80',
             overview: 'A team of explorers travel through a wormhole in space in an attempt to ensure humanity\'s survival.',
             genres: ['Adventure', 'Drama', 'Sci-Fi'], match: 96, rating: 'U/A 13+', year: 2014
         },
         {
             id: 4, title: 'Dune',
-            thumb: 'https://images.unsplash.com/photo-1574267432553-4b462808152a?w=500&q=70',
-            backdrop: 'https://images.unsplash.com/photo-1574267432553-4b462808152a?w=1200&q=80',
+            thumb: 'https://images.unsplash.com/photo-1547638375-ebf04735d792?w=500&q=80',
+            backdrop: 'https://images.unsplash.com/photo-1547638375-ebf04735d792?w=1200&q=80',
             overview: 'Paul Atreides, a brilliant and gifted young man born into a great destiny beyond his understanding, must travel to the most dangerous planet in the universe.',
             genres: ['Action', 'Adventure', 'Drama'], match: 95, rating: 'U/A 13+', year: 2021
         },
         {
             id: 5, title: 'The Shawshank Redemption',
-            thumb: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=500&q=70',
+            thumb: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=500&q=80',
             backdrop: 'https://images.unsplash.com/photo-1534447677768-be436bb09401?w=1200&q=80',
             overview: 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.',
             genres: ['Drama'], match: 99, rating: 'U/A 15+', year: 1994
         },
         {
             id: 6, title: 'Parasite',
-            thumb: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=500&q=70',
-            backdrop: 'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=1200&q=80',
+            thumb: 'https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=500&q=80',
+            backdrop: 'https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=1200&q=80',
             overview: 'Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.',
             genres: ['Comedy', 'Drama', 'Thriller'], match: 97, rating: 'U/A 15+', year: 2019
         },
         {
             id: 7, title: 'Oppenheimer',
-            thumb: 'https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=500&q=70',
-            backdrop: 'https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=1200&q=80',
+            thumb: 'https://images.unsplash.com/photo-1585951237318-9ea5e175b891?w=500&q=80',
+            backdrop: 'https://images.unsplash.com/photo-1585951237318-9ea5e175b891?w=1200&q=80',
             overview: 'The story of American scientist J. Robert Oppenheimer and his role in the development of the atomic bomb during World War II.',
             genres: ['Biography', 'Drama', 'History'], match: 96, rating: 'U/A 15+', year: 2023
         },
         {
             id: 8, title: 'Avatar: The Way of Water',
-            thumb: 'https://images.unsplash.com/photo-1616530940355-351fabd9524b?w=500&q=70',
+            thumb: 'https://images.unsplash.com/photo-1616530940355-351fabd9524b?w=500&q=80',
             backdrop: 'https://images.unsplash.com/photo-1616530940355-351fabd9524b?w=1200&q=80',
             overview: 'Jake Sully lives with his newfound family formed on the planet of Pandora. Once a familiar threat returns, Jake must work with Neytiri to protect their home.',
             genres: ['Action', 'Adventure', 'Fantasy'], match: 93, rating: 'U/A 13+', year: 2022
         },
         {
             id: 9, title: 'Everything Everywhere All at Once',
-            thumb: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=500&q=70',
-            backdrop: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1200&q=80',
+            thumb: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=500&q=80',
+            backdrop: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=1200&q=80',
             overview: 'An aging Chinese immigrant is swept up in an insane adventure in which she alone can save the world by exploring other universes.',
             genres: ['Action', 'Adventure', 'Comedy'], match: 98, rating: 'U/A 15+', year: 2022
         },
         {
             id: 10, title: 'Top Gun: Maverick',
-            thumb: 'https://images.unsplash.com/photo-1550684848-86a5d8727436?w=500&q=70',
+            thumb: 'https://images.unsplash.com/photo-1550684848-86a5d8727436?w=500&q=80',
             backdrop: 'https://images.unsplash.com/photo-1550684848-86a5d8727436?w=1200&q=80',
             overview: 'After more than thirty years of service as one of the Navy\'s top aviators, Pete Mitchell is where he belongs, pushing the envelope as a courageous test pilot.',
             genres: ['Action', 'Drama'], match: 97, rating: 'U/A 13+', year: 2022
         },
         {
             id: 11, title: 'Pulp Fiction',
-            thumb: 'https://images.unsplash.com/photo-1512070679279-8988d32161be?w=500&q=70',
+            thumb: 'https://images.unsplash.com/photo-1512070679279-8988d32161be?w=500&q=80',
             backdrop: 'https://images.unsplash.com/photo-1512070679279-8988d32161be?w=1200&q=80',
             overview: 'The lives of two mob hitmen, a boxer, a gangster and his wife intertwine in four tales of violence and redemption.',
             genres: ['Crime', 'Drama'], match: 97, rating: 'A', year: 1994
         },
         {
             id: 12, title: 'The Godfather',
-            thumb: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=70',
+            thumb: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80',
             backdrop: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&q=80',
             overview: 'The aging patriarch of an organized crime dynasty transfers control to his reluctant son.',
             genres: ['Crime', 'Drama'], match: 99, rating: 'A', year: 1972
@@ -320,8 +320,9 @@ document.addEventListener('DOMContentLoaded', () => {
         img.src    = movie.thumb || '';
         img.alt    = movie.title || '';
         img.loading = 'lazy';
+        // Updated error fallback URL
         img.onerror = () => {
-            img.src = 'https://via.placeholder.com/220x124/1a1a2e/ffffff?text=' + encodeURIComponent(movie.title || 'Movie');
+            img.src = 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=500&q=80';
         };
         item.appendChild(img);
 
@@ -395,7 +396,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Row configuration
     const ROWS = [
-        { id: 'carousel-top-picks',   tmdbEndpoint: '/movie/popular',          fallbackCount: 10 },
+        { id: 'carousel-top-picks',   tmdbEndpoint: '/movie/popular',         fallbackCount: 10 },
         { id: 'carousel-top10',       tmdbEndpoint: '/trending/all/week',       fallbackCount: 10, isTop10: true },
         { id: 'carousel-continue',    tmdbEndpoint: '/movie/now_playing',       fallbackCount: 8,  isContinue: true },
         { id: 'carousel-new',         tmdbEndpoint: '/movie/upcoming',          fallbackCount: 10 },

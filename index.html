@@ -13,52 +13,43 @@
 </head>
 <body>
 
-    <!-- ========== NAVBAR ========== -->
     <header class="navbar" id="navbar">
         <div class="nav-left">
-            <a href="#" class="logo-link" aria-label="Netflix Home">
-                <svg class="logo-svg" viewBox="0 0 111 30" aria-hidden="true" focusable="false">
-                    <path d="M105.06233,14.2806261 L110.999999,30 C109.249999,29.7500004 107.500001,29.4999992 105.750001,29.2499981 L100.731771,15.3279985 L95.8420976,29.1575822 C94.0420976,28.9075811 92.2420972,28.6575799 90.4420972,28.3918492 L96.4137542,14.2806261 L90.8426031,0 L96.6937789,0 L101.27311,13.6906262 L105.06233,14.2806261 Z" fill="#E50914"/>
-                    <path d="M100.731771,15.3279985 L105.06233,14.2806261 L110.999999,30 L105.750001,29.2499981 L100.731771,15.3279985 Z" fill="#B81D24"/>
-                    <path d="M11.1678,5.54948 L11.1678,29.7499987 C9.25258,29.5832321 7.33732,29.4165638 5.42207,29.2668957 L5.42207,5.54948 L0,5.54948 L0,0 L16.5898,0 L16.5898,5.54948 L11.1678,5.54948 Z M23.4606,24.2571966 C22.1373,24.1405298 20.814,24.0238631 19.4905,23.923396 L19.4905,0 L24.9126,0 L24.9126,23.5237 C24.4288,23.7679 23.9451,24.012 23.4606,24.2571966 Z M36.5282,10.8338 L36.5282,23.5237 C35.1887,23.4903662 33.8326,23.4070312 32.4604,23.3236962 L32.4604,10.8338 L27.0384,10.8338 L27.0384,5.54948 L41.9502,5.54948 L41.9502,10.8338 L36.5282,10.8338 Z M50.4064,10.8338 L50.4064,29.7499987 C48.4912,29.5999987 46.5759,29.4499987 44.6607,29.2999987 L44.6607,10.8338 L39.2386,10.8338 L39.2386,5.54948 L55.8284,5.54948 L55.8284,10.8338 L50.4064,10.8338 Z M57.9827,0 L63.4047,0 L63.4047,29.9999987 C61.4895,29.9999987 59.5742,29.9999987 57.9827,29.9999987 L57.9827,0 Z M77.9959,0 L72.5739,0 L72.5739,24.1404635 C73.8972,24.2238 75.2205,24.3571348 76.5438,24.4904696 L83.4179,0 L89.1357,0 L89.1357,5.54948 L88.7185,5.54948 L81.5429,29.9999987 C80.236,29.6666654 78.929,29.3333304 77.622,29.0166637 L77.9959,0 Z" fill="#E50914"/>
-                </svg>
+            <a href="#home" class="logo-link" aria-label="Netflix Home">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" class="logo-svg">
             </a>
             <nav class="nav-links" aria-label="Primary navigation">
                 <ul>
                     <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#" class="nav-link">TV Shows</a></li>
-                    <li><a href="#" class="nav-link">Movies</a></li>
-                    <li><a href="#" class="nav-link">New &amp; Popular</a></li>
-                    <li><a href="#" class="nav-link">My List</a></li>
-                    <li><a href="#" class="nav-link">Browse by Languages</a></li>
+                    <li><a href="#anime" class="nav-link">TV Shows</a></li>
+                    <li><a href="#gems" class="nav-link">Movies</a></li>
+                    <li><a href="#new-releases" class="nav-link">New &amp; Popular</a></li>
+                    <li><a href="#top-picks" class="nav-link">My List</a></li>
+                    <li><a href="#captivating" class="nav-link">Browse by Languages</a></li>
                 </ul>
             </nav>
-            <!-- Mobile hamburger menu -->
             <div class="browse-menu" id="browse-menu">
                 <span>Browse</span>
                 <i class="fas fa-chevron-down"></i>
                 <div class="browse-dropdown">
                     <a href="#home">Home</a>
-                    <a href="#">TV Shows</a>
-                    <a href="#">Movies</a>
-                    <a href="#">New &amp; Popular</a>
-                    <a href="#">My List</a>
-                    <a href="#">Browse by Languages</a>
+                    <a href="#anime">TV Shows</a>
+                    <a href="#gems">Movies</a>
+                    <a href="#new-releases">New &amp; Popular</a>
+                    <a href="#top-picks">My List</a>
+                    <a href="#captivating">Browse by Languages</a>
                 </div>
             </div>
         </div>
 
         <div class="nav-right">
-            <!-- Search -->
             <div class="search-container" id="search-container">
                 <button class="search-toggle" id="search-toggle" aria-label="Search">
                     <i class="fas fa-search"></i>
                 </button>
                 <input type="text" class="search-input" id="search-input" placeholder="Titles, people, genres" aria-label="Search titles, people, genres">
             </div>
-            <!-- Kids -->
             <a href="#" class="nav-text-link">Children</a>
-            <!-- Notifications -->
             <div class="notif-container">
                 <button class="notif-btn" aria-label="Notifications">
                     <i class="fas fa-bell"></i>
@@ -81,7 +72,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Profile -->
             <div class="profile-menu" id="profile-menu">
                 <div class="profile-avatar" aria-label="Profile menu" tabindex="0">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="Profile" onerror="this.style.display='none'">
@@ -91,7 +81,7 @@
                     <div class="profile-accounts">
                         <div class="profile-account-item">
                             <div class="profile-account-thumb" style="background: linear-gradient(135deg,#2193b0,#6dd5ed)"></div>
-                            <span>feyazkhan8800</span>
+                            <span>akash</span>
                         </div>
                         <div class="profile-account-item">
                             <div class="profile-account-thumb" style="background: linear-gradient(135deg,#f7971e,#ffd200)"></div>
@@ -109,7 +99,6 @@
         </div>
     </header>
 
-    <!-- ========== HERO SECTION ========== -->
     <section class="hero" id="home" aria-label="Featured content: The Matrix Resurrections">
         <div class="hero-bg">
             <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1920&q=80" alt="" class="hero-bg-img" aria-hidden="true">
@@ -144,7 +133,6 @@
         </div>
     </section>
 
-    <!-- ========== MAIN CONTENT ========== -->
     <main class="main-content" id="main-content">
 
         <section class="row" id="top-picks" aria-label="Today's Top Picks">
@@ -166,7 +154,7 @@
         </section>
 
         <section class="row" id="continue-watching" aria-label="Continue Watching">
-            <h2 class="row-title">Continue Watching for feyazkhan8800</h2>
+            <h2 class="row-title">Continue Watching for akash</h2>
             <div class="carousel-container">
                 <button type="button" class="handle left-handle" aria-label="Scroll left"><i class="fas fa-chevron-left"></i></button>
                 <div class="carousel" id="carousel-continue" role="list"></div>
@@ -221,7 +209,6 @@
 
     </main>
 
-    <!-- ========== FOOTER ========== -->
     <footer class="site-footer">
         <p class="footer-social">
             <a href="#" aria-label="Netflix on Facebook"><i class="fab fa-facebook-square"></i></a>
@@ -249,7 +236,6 @@
         <p class="footer-copyright">&copy; 1997–2026 Netflix, Inc.</p>
     </footer>
 
-    <!-- ========== MOVIE DETAIL MODAL ========== -->
     <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
         <div class="modal" id="modal">
             <button class="modal-close" id="modal-close" aria-label="Close"><i class="fas fa-times"></i></button>
@@ -286,7 +272,6 @@
         </div>
     </div>
 
-    <!-- ========== TOOLTIP HOVER CARD ========== -->
     <div class="tooltip-card" id="tooltip-card" aria-hidden="true">
         <div class="tooltip-thumb-wrap">
             <img src="" alt="" class="tooltip-thumb" id="tooltip-thumb">
