@@ -21,10 +21,7 @@
             </ul>
         </div>
         <div class="nav-right">
-            <div class="search-box">
-                <i class="fas fa-search" id="search-icon"></i>
-                <input type="text" id="search-input" placeholder="Titles, people, genres">
-            </div>
+            <i class="fas fa-search"></i>
             <span>Children</span>
             <i class="fas fa-bell"></i>
             <div class="profile-avatar"></div>
@@ -33,9 +30,9 @@
 
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1 class="hero-title" id="hero-title">Loading...</h1>
-            <p class="hero-description" id="hero-desc">
-                Fetching the latest trending movie...
+            <h1 class="hero-title">The Matrix Resurrections</h1>
+            <p class="hero-description">
+                Return to a world of two realities: one, everyday life; the other, what lies behind it. To find out if his reality is a construct, to truly know himself, Mr. Anderson will have to choose to follow the white rabbit once more.
             </p>
             <div class="hero-buttons">
                 <button type="button" class="btn btn-play" id="play-btn"><i class="fas fa-play"></i> Play</button>
@@ -46,11 +43,13 @@
     </section>
 
     <main class="main-content">
+        
         <div class="row" id="top-picks">
             <h2 class="row-title">Today's Top Picks for You</h2>
             <div class="carousel-container">
                 <button type="button" class="handle left-handle"><i class="fas fa-chevron-left"></i></button>
-                <div class="carousel" id="carousel-top-picks"></div>
+                <div class="carousel" id="carousel-top-picks">
+                    </div>
                 <button type="button" class="handle right-handle"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
@@ -59,7 +58,8 @@
             <h2 class="row-title">Continue Watching for feyazkhan8800</h2>
             <div class="carousel-container">
                 <button type="button" class="handle left-handle"><i class="fas fa-chevron-left"></i></button>
-                <div class="carousel" id="carousel-continue"></div>
+                <div class="carousel" id="carousel-continue">
+                    </div>
                 <button type="button" class="handle right-handle"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
@@ -68,7 +68,18 @@
             <h2 class="row-title">Watch-Party Picks to Get the Crew Talking</h2>
             <div class="carousel-container">
                 <button type="button" class="handle left-handle"><i class="fas fa-chevron-left"></i></button>
-                <div class="carousel" id="carousel-party"></div>
+                <div class="carousel" id="carousel-party">
+                    </div>
+                <button type="button" class="handle right-handle"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+
+        <div class="row" id="captivating">
+            <h2 class="row-title">So Completely Captivating</h2>
+            <div class="carousel-container">
+                <button type="button" class="handle left-handle"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel" id="carousel-captivating">
+                    </div>
                 <button type="button" class="handle right-handle"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
@@ -77,29 +88,42 @@
             <h2 class="row-title">Anime Series</h2>
             <div class="carousel-container">
                 <button type="button" class="handle left-handle"><i class="fas fa-chevron-left"></i></button>
-                <div class="carousel" id="carousel-anime"></div>
+                <div class="carousel" id="carousel-anime">
+                    </div>
                 <button type="button" class="handle right-handle"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
-    </main>
 
-    <div id="movie-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" id="close-modal">&times;</span>
-            <div class="modal-header" id="modal-banner">
-                <div class="modal-header-fade"></div>
-            </div>
-            <div class="modal-body">
-                <h2 id="modal-title">Movie Title</h2>
-                <div class="modal-stats">
-                    <span class="match">98% Match</span>
-                    <span id="modal-year">2026</span>
-                    <span class="age-rating">U/A 16+</span>
-                </div>
-                <p id="modal-overview">Movie description goes here.</p>
+        <div class="row" id="gems">
+            <h2 class="row-title">Gems for You</h2>
+            <div class="carousel-container">
+                <button type="button" class="handle left-handle"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel" id="carousel-gems">
+                    </div>
+                <button type="button" class="handle right-handle"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
-    </div>
+
+    </main>
+
+    <footer class="site-footer">
+        <p>Questions? Call 000-800-040-1843</p>
+        <div class="footer-links">
+            <a href="#">FAQ</a>
+            <a href="#">Help Centre</a>
+            <a href="#">Account</a>
+            <a href="#">Media Centre</a>
+            <a href="#">Investor Relations</a>
+            <a href="#">Jobs</a>
+            <a href="#">Ways to Watch</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Privacy</a>
+            <a href="#">Cookie Preferences</a>
+            <a href="#">Corporate Information</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <p>&copy; 1997-2026 Netflix Clone, Inc.</p>
+    </footer>
 
     <script src="js/script.js"></script>
 </body>
