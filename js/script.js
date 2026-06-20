@@ -1,105 +1,107 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- 1. Navbar Scroll Effect ---
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
+    // --- 1. Expandable Search Bar ---
+    const searchIcon = document.getElementById('search-icon');
+    const searchBox = document.querySelector('.search-box');
+    const searchInput = document.getElementById('search-input');
+
+    searchIcon.addEventListener('click', () => {
+        searchBox.classList.toggle('active');
+        if(searchBox.classList.contains('active')) searchInput.focus();
     });
 
-    // --- 2. Button Interactivity ---
-    const playBtn = document.getElementById('play-btn');
-    const infoBtn = document.getElementById('info-btn');
-    if(playBtn) playBtn.addEventListener('click', () => alert('Playing movie...'));
-    if(infoBtn) infoBtn.addEventListener('click', () => alert('Opening details...'));
+    // --- 2. Modal Logic ---
+    const modal = document.getElementById('movie-modal');
+    const closeModal = document.getElementById('close-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalOverview = document.getElementById('modal-overview');
+    const modalBanner = document.getElementById('modal-banner');
+    const modalYear = document.getElementById('modal-year');
 
-    // --- 3. Carousel Slider Logic ---
-    const carouselContainers = document.querySelectorAll('.carousel-container');
-    carouselContainers.forEach(container => {
-        const carousel = container.querySelector('.carousel');
-        const leftHandle = container.querySelector('.left-handle');
-        const rightHandle = container.querySelector('.right-handle');
-        const scrollAmount = 520; // Width to scroll per click
+    // Close modal when clicking the X or clicking outside the box
+    closeModal.onclick = () => modal.classList.remove('show');
+    window.onclick = (e) => { if (e.target === modal) modal.classList.remove('show'); }
 
-        if (leftHandle && rightHandle && carousel) {
-            leftHandle.addEventListener('click', () => {
-                carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-            });
-            rightHandle.addEventListener('click', () => {
-                carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-            });
-        }
-    });
+    function openModal(movie) {
+        modalTitle.innerText = movie.title || movie.name;
+        modalOverview.innerText = movie.overview || "No description available.";
+        modalYear.innerText = (movie.release_date || "2026").substring(0, 4);
+        modalBanner.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`;
+        modal.classList.add('show');
+    }
 
-    // --- 4. TMDB API & Fallback Data Injection ---
-    
-    // NOTE: To use real TMDB data, replace 'YOUR_API_KEY' with a real key from https://www.themoviedb.org/
+    // --- 3. TMDB API Integration ---
+    // NOTE: Insert your real TMDB API key here to make it work!
     const API_KEY = 'YOUR_API_KEY'; 
     const isApiActive = API_KEY !== 'YOUR_API_KEY';
-    
-    // Cinematic Fallback Images (Guarantees site works even without API key)
-    const fallbackImages = [
-        "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=500&q=80",
-        "https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?w=500&q=80",
-        "https://images.unsplash.com/photo-1585951237318-9ea5e175b891?w=500&q=80",
-        "https://images.unsplash.com/photo-1616530940355-351fabd9524b?w=500&q=80",
-        "https://images.unsplash.com/photo-1574267432553-4b462808152a?w=500&q=80",
-        "https://images.unsplash.com/photo-1534447677768-be436bb09401?w=500&q=80",
-        "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=500&q=80",
-        "https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=500&q=80"
-    ];
 
-    // IDs of all the carousels in HTML
-    const rowIds = [
-        'carousel-top-picks', 
-        'carousel-continue', 
-        'carousel-party', 
-        'carousel-captivating', 
-        'carousel-anime', 
-        'carousel-gems'
-    ];
+    const endpoints = {
+        popular: `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`,
+        trending: `https://api.themoviedb.org/3/trending/all/week?api_key=${API_KEY}`,
+        anime: `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&with_genres=16`
+    };
 
-    // Function to populate a carousel with images
-    function populateCarousel(carouselId, imageUrls) {
+    function populateCarousel(carouselId, movies) {
         const carousel = document.getElementById(carouselId);
         if (!carousel) return;
         
-        imageUrls.forEach(url => {
+        movies.forEach(movie => {
+            if(!movie.backdrop_path) return; // Skip if no image
+            
             const img = document.createElement('img');
-            img.src = url;
-            img.alt = "Movie Poster";
+            img.src = `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`;
+            img.alt = movie.title;
             img.className = "carousel-item";
+            
+            // Add click event to open the modal with this movie's data
+            img.addEventListener('click', () => openModal(movie));
+            
             carousel.appendChild(img);
         });
     }
 
-    // Logic to fetch from TMDB or use Fallback
+    function updateHeroSection(movie) {
+        document.getElementById('home').style.backgroundImage = `url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`;
+        document.getElementById('hero-title').innerText = movie.title || movie.name;
+        
+        // Truncate description if too long
+        let desc = movie.overview;
+        if(desc.length > 200) desc = desc.substring(0, 200) + '...';
+        document.getElementById('hero-desc').innerText = desc;
+    }
+
     async function loadMovies() {
-        if (isApiActive) {
-            try {
-                // Example: Fetching popular movies from TMDB
-                const res = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`);
-                const data = await res.json();
-                const tmdbImages = data.results.map(movie => `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`);
-                
-                // Populate all rows with API data
-                rowIds.forEach(id => populateCarousel(id, tmdbImages));
-            } catch (error) {
-                console.error("API Fetch failed, using fallback.", error);
-                rowIds.forEach(id => populateCarousel(id, fallbackImages.sort(() => Math.random() - 0.5)));
-            }
-        } else {
-            // No API Key provided: Use fallback cinematic images, shuffling them slightly for variety
-            rowIds.forEach(id => {
-                const shuffled = [...fallbackImages].sort(() => Math.random() - 0.5);
-                populateCarousel(id, shuffled);
-            });
+        if (!isApiActive) {
+            console.error("Please add your TMDB API Key to see real data.");
+            return;
+        }
+
+        try {
+            // Fetch Trending for Hero and Row 1
+            const trendRes = await fetch(endpoints.trending);
+            const trendData = await trendRes.json();
+            
+            // Set Hero to the #1 trending movie
+            updateHeroSection(trendData.results[0]);
+            
+            // Populate rows
+            populateCarousel('carousel-top-picks', trendData.results);
+            populateCarousel('carousel-continue', trendData.results.slice().reverse()); // shuffle visually
+
+            // Fetch Anime
+            const animeRes = await fetch(endpoints.anime);
+            const animeData = await animeRes.json();
+            populateCarousel('carousel-anime', animeData.results);
+            
+            // Fetch Popular
+            const popRes = await fetch(endpoints.popular);
+            const popData = await popRes.json();
+            populateCarousel('carousel-party', popData.results);
+
+        } catch (error) {
+            console.error("API Fetch failed", error);
         }
     }
 
-    // Execute movie loading
     loadMovies();
 });
