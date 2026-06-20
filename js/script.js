@@ -201,7 +201,6 @@ document.addEventListener('DOMContentLoaded', () => {
        7. CAROUSEL POPULATION (Updated Fallback Images)
        ======================================================== */
 
-    // Replaced dead/blank links with working cinematic images
     const FALLBACK_MOVIES = [
         {
             id: 1, title: 'The Dark Knight',
@@ -320,7 +319,6 @@ document.addEventListener('DOMContentLoaded', () => {
         img.src    = movie.thumb || '';
         img.alt    = movie.title || '';
         img.loading = 'lazy';
-        // Updated error fallback URL
         img.onerror = () => {
             img.src = 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=500&q=80';
         };

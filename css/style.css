@@ -92,7 +92,6 @@ button {
     flex-shrink: 0;
 }
 
-/* Updated logo styling for image */
 .logo-svg {
     width: 92px;
     height: 28px;
@@ -444,7 +443,7 @@ button {
 .hero-content {
     position: relative;
     z-index: 10;
-    padding: 0 4% 10vh;
+    padding: 0 4% 120px;
     max-width: 52%;
 }
 
@@ -1140,10 +1139,7 @@ body.modal-open {
     .logo-svg { width: 72px; }
     .hero { height: 75vh; align-items: flex-end; }
     
-    /* FIX: Increased bottom padding from 8vh to 14vh to push buttons up */
-    .hero-content { max-width: 100%; padding: 0 4% 14vh; }
-    
-    /* FIX: Reduced the negative margin so the rows don't pull up as far */
+    .hero-content { max-width: 100%; padding: 0 4% 60px; }
     .main-content { margin-top: -20px; }
 
     .hero-title { font-size: 1.8rem; }
