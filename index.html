@@ -13,11 +13,11 @@
         <div class="nav-left">
             <h1 class="logo">NETFLIX</h1>
             <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">TV Shows</a></li>
-                <li><a href="#">Movies</a></li>
-                <li><a href="#">New & Popular</a></li>
-                <li><a href="#">My List</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#top-picks">Top Picks</a></li>
+                <li><a href="#continue-watching">Continue Watching</a></li>
+                <li><a href="#watch-party">Watch-Party</a></li>
+                <li><a href="#anime">Anime</a></li>
             </ul>
         </div>
         <div class="nav-right">
@@ -28,7 +28,7 @@
         </div>
     </header>
 
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="hero-content">
             <h1 class="hero-title">The Matrix Resurrections</h1>
             <p class="hero-description">
@@ -44,110 +44,62 @@
 
     <main class="main-content">
         
-        <div class="row">
-            <h2 class="row-title">Trending Now</h2>
+        <div class="row" id="top-picks">
+            <h2 class="row-title">Today's Top Picks for You</h2>
             <div class="carousel-container">
                 <button type="button" class="handle left-handle"><i class="fas fa-chevron-left"></i></button>
-                <div class="carousel">
-                    <img src="https://picsum.photos/seed/trend1/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/trend2/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/trend3/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/trend4/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/trend5/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/trend6/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/trend7/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/trend8/300/168" alt="Movie" class="carousel-item">
-                </div>
+                <div class="carousel" id="carousel-top-picks">
+                    </div>
                 <button type="button" class="handle right-handle"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
 
-        <div class="row">
-            <h2 class="row-title">Top Picks for You</h2>
+        <div class="row" id="continue-watching">
+            <h2 class="row-title">Continue Watching for feyazkhan8800</h2>
             <div class="carousel-container">
                 <button type="button" class="handle left-handle"><i class="fas fa-chevron-left"></i></button>
-                <div class="carousel">
-                    <img src="https://picsum.photos/seed/pick1/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/pick2/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/pick3/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/pick4/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/pick5/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/pick6/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/pick7/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/pick8/300/168" alt="Movie" class="carousel-item">
-                </div>
+                <div class="carousel" id="carousel-continue">
+                    </div>
                 <button type="button" class="handle right-handle"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
 
-        <div class="row">
-            <h2 class="row-title">Action Thrillers</h2>
+        <div class="row" id="watch-party">
+            <h2 class="row-title">Watch-Party Picks to Get the Crew Talking</h2>
             <div class="carousel-container">
                 <button type="button" class="handle left-handle"><i class="fas fa-chevron-left"></i></button>
-                <div class="carousel">
-                    <img src="https://picsum.photos/seed/action1/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/action2/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/action3/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/action4/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/action5/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/action6/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/action7/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/action8/300/168" alt="Movie" class="carousel-item">
-                </div>
+                <div class="carousel" id="carousel-party">
+                    </div>
                 <button type="button" class="handle right-handle"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
 
-        <div class="row">
-            <h2 class="row-title">Comedies</h2>
+        <div class="row" id="captivating">
+            <h2 class="row-title">So Completely Captivating</h2>
             <div class="carousel-container">
                 <button type="button" class="handle left-handle"><i class="fas fa-chevron-left"></i></button>
-                <div class="carousel">
-                    <img src="https://picsum.photos/seed/comedy1/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/comedy2/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/comedy3/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/comedy4/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/comedy5/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/comedy6/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/comedy7/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/comedy8/300/168" alt="Movie" class="carousel-item">
-                </div>
+                <div class="carousel" id="carousel-captivating">
+                    </div>
                 <button type="button" class="handle right-handle"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
 
-        <div class="row">
-            <h2 class="row-title">Anime</h2>
+        <div class="row" id="anime">
+            <h2 class="row-title">Anime Series</h2>
             <div class="carousel-container">
                 <button type="button" class="handle left-handle"><i class="fas fa-chevron-left"></i></button>
-                <div class="carousel">
-                    <img src="https://picsum.photos/seed/anime1/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/anime2/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/anime3/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/anime4/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/anime5/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/anime6/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/anime7/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/anime8/300/168" alt="Movie" class="carousel-item">
-                </div>
+                <div class="carousel" id="carousel-anime">
+                    </div>
                 <button type="button" class="handle right-handle"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>
 
-        <div class="row">
-            <h2 class="row-title">Documentaries</h2>
+        <div class="row" id="gems">
+            <h2 class="row-title">Gems for You</h2>
             <div class="carousel-container">
                 <button type="button" class="handle left-handle"><i class="fas fa-chevron-left"></i></button>
-                <div class="carousel">
-                    <img src="https://picsum.photos/seed/doc1/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/doc2/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/doc3/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/doc4/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/doc5/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/doc6/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/doc7/300/168" alt="Movie" class="carousel-item">
-                    <img src="https://picsum.photos/seed/doc8/300/168" alt="Movie" class="carousel-item">
-                </div>
+                <div class="carousel" id="carousel-gems">
+                    </div>
                 <button type="button" class="handle right-handle"><i class="fas fa-chevron-right"></i></button>
             </div>
         </div>

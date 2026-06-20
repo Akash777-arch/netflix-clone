@@ -1,4 +1,9 @@
 /* --- Base Reset & Typography --- */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px; /* Prevents sticky navbar from covering section titles */
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +12,7 @@
 
 body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background-color: #141414; /* Netflix core background */
+    background-color: #141414; 
     color: white;
     overflow-x: hidden;
 }
@@ -23,7 +28,7 @@ body {
     align-items: center;
     z-index: 1000;
     transition: background-color 0.4s ease;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.7) 10%, rgba(0,0,0,0));
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 10%, rgba(0,0,0,0));
 }
 
 .navbar.scrolled {
@@ -145,13 +150,13 @@ body {
     bottom: 0;
     width: 100%;
     height: 150px;
-    background: linear-gradient(180deg, transparent, rgba(20, 20, 20, 0.61), #141414);
+    background: linear-gradient(180deg, transparent, rgba(20, 20, 20, 0.8), #141414);
 }
 
 /* --- Main Layout & Rows --- */
 .main-content {
     padding: 0 4%;
-    margin-top: -100px;
+    margin-top: -80px;
     position: relative;
     z-index: 20;
 }
@@ -199,7 +204,7 @@ body {
     border-radius: 4px;
     cursor: pointer;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    flex-shrink: 0; /* Prevents images from squishing */
+    flex-shrink: 0;
 }
 
 .carousel-item:hover {
@@ -211,7 +216,7 @@ body {
 /* --- Carousel Navigation Handles --- */
 .handle {
     position: absolute;
-    top: 20px; /* Offset to match the padding of the carousel */
+    top: 20px; 
     bottom: 20px;
     width: 40px;
     background: rgba(0,0,0,0.5);
@@ -286,7 +291,7 @@ body {
     .hero-content { max-width: 80%; }
     .hero-title { font-size: 2.5rem; }
     .carousel-item { width: 150px; height: 84px; }
-    .handle { display: none; } /* Better to swipe on mobile */
+    .handle { display: none; }
     .footer-links { grid-template-columns: repeat(2, 1fr); }
 }
 
