@@ -3,127 +3,309 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netflix Clone</title>
+    <title>Netflix</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23E50914'>N</text></svg>">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Netflix+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
+    <!-- ========== NAVBAR ========== -->
     <header class="navbar" id="navbar">
         <div class="nav-left">
-            <h1 class="logo">NETFLIX</h1>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#top-picks">Top Picks</a></li>
-                <li><a href="#continue-watching">Continue Watching</a></li>
-                <li><a href="#watch-party">Watch-Party</a></li>
-                <li><a href="#anime">Anime</a></li>
-            </ul>
+            <a href="#" class="logo-link" aria-label="Netflix Home">
+                <svg class="logo-svg" viewBox="0 0 111 30" aria-hidden="true" focusable="false">
+                    <path d="M105.06233,14.2806261 L110.999999,30 C109.249999,29.7500004 107.500001,29.4999992 105.750001,29.2499981 L100.731771,15.3279985 L95.8420976,29.1575822 C94.0420976,28.9075811 92.2420972,28.6575799 90.4420972,28.3918492 L96.4137542,14.2806261 L90.8426031,0 L96.6937789,0 L101.27311,13.6906262 L105.06233,14.2806261 Z" fill="#E50914"/>
+                    <path d="M100.731771,15.3279985 L105.06233,14.2806261 L110.999999,30 L105.750001,29.2499981 L100.731771,15.3279985 Z" fill="#B81D24"/>
+                    <path d="M11.1678,5.54948 L11.1678,29.7499987 C9.25258,29.5832321 7.33732,29.4165638 5.42207,29.2668957 L5.42207,5.54948 L0,5.54948 L0,0 L16.5898,0 L16.5898,5.54948 L11.1678,5.54948 Z M23.4606,24.2571966 C22.1373,24.1405298 20.814,24.0238631 19.4905,23.923396 L19.4905,0 L24.9126,0 L24.9126,23.5237 C24.4288,23.7679 23.9451,24.012 23.4606,24.2571966 Z M36.5282,10.8338 L36.5282,23.5237 C35.1887,23.4903662 33.8326,23.4070312 32.4604,23.3236962 L32.4604,10.8338 L27.0384,10.8338 L27.0384,5.54948 L41.9502,5.54948 L41.9502,10.8338 L36.5282,10.8338 Z M50.4064,10.8338 L50.4064,29.7499987 C48.4912,29.5999987 46.5759,29.4499987 44.6607,29.2999987 L44.6607,10.8338 L39.2386,10.8338 L39.2386,5.54948 L55.8284,5.54948 L55.8284,10.8338 L50.4064,10.8338 Z M57.9827,0 L63.4047,0 L63.4047,29.9999987 C61.4895,29.9999987 59.5742,29.9999987 57.9827,29.9999987 L57.9827,0 Z M77.9959,0 L72.5739,0 L72.5739,24.1404635 C73.8972,24.2238 75.2205,24.3571348 76.5438,24.4904696 L83.4179,0 L89.1357,0 L89.1357,5.54948 L88.7185,5.54948 L81.5429,29.9999987 C80.236,29.6666654 78.929,29.3333304 77.622,29.0166637 L77.9959,0 Z" fill="#E50914"/>
+                </svg>
+            </a>
+            <nav class="nav-links" aria-label="Primary navigation">
+                <ul>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#" class="nav-link">TV Shows</a></li>
+                    <li><a href="#" class="nav-link">Movies</a></li>
+                    <li><a href="#" class="nav-link">New &amp; Popular</a></li>
+                    <li><a href="#" class="nav-link">My List</a></li>
+                    <li><a href="#" class="nav-link">Browse by Languages</a></li>
+                </ul>
+            </nav>
+            <!-- Mobile hamburger menu -->
+            <div class="browse-menu" id="browse-menu">
+                <span>Browse</span>
+                <i class="fas fa-chevron-down"></i>
+                <div class="browse-dropdown">
+                    <a href="#home">Home</a>
+                    <a href="#">TV Shows</a>
+                    <a href="#">Movies</a>
+                    <a href="#">New &amp; Popular</a>
+                    <a href="#">My List</a>
+                    <a href="#">Browse by Languages</a>
+                </div>
+            </div>
         </div>
+
         <div class="nav-right">
-            <i class="fas fa-search"></i>
-            <span>Children</span>
-            <i class="fas fa-bell"></i>
-            <div class="profile-avatar"></div>
+            <!-- Search -->
+            <div class="search-container" id="search-container">
+                <button class="search-toggle" id="search-toggle" aria-label="Search">
+                    <i class="fas fa-search"></i>
+                </button>
+                <input type="text" class="search-input" id="search-input" placeholder="Titles, people, genres" aria-label="Search titles, people, genres">
+            </div>
+            <!-- Kids -->
+            <a href="#" class="nav-text-link">Children</a>
+            <!-- Notifications -->
+            <div class="notif-container">
+                <button class="notif-btn" aria-label="Notifications">
+                    <i class="fas fa-bell"></i>
+                </button>
+                <div class="notif-dropdown">
+                    <h4>Notifications</h4>
+                    <div class="notif-item">
+                        <div class="notif-thumb" style="background:#c00"></div>
+                        <div class="notif-text">
+                            <p><strong>Stranger Things</strong> Season 5 is now available.</p>
+                            <span>2 days ago</span>
+                        </div>
+                    </div>
+                    <div class="notif-item">
+                        <div class="notif-thumb" style="background:#333"></div>
+                        <div class="notif-text">
+                            <p><strong>The Crown</strong> - New episodes added.</p>
+                            <span>1 week ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Profile -->
+            <div class="profile-menu" id="profile-menu">
+                <div class="profile-avatar" aria-label="Profile menu" tabindex="0">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="Profile" onerror="this.style.display='none'">
+                </div>
+                <i class="fas fa-chevron-down profile-chevron"></i>
+                <div class="profile-dropdown">
+                    <div class="profile-accounts">
+                        <div class="profile-account-item">
+                            <div class="profile-account-thumb" style="background: linear-gradient(135deg,#2193b0,#6dd5ed)"></div>
+                            <span>feyazkhan8800</span>
+                        </div>
+                        <div class="profile-account-item">
+                            <div class="profile-account-thumb" style="background: linear-gradient(135deg,#f7971e,#ffd200)"></div>
+                            <span>Kids</span>
+                        </div>
+                    </div>
+                    <div class="profile-divider"></div>
+                    <a href="#"><i class="fas fa-user-edit"></i> Manage Profiles</a>
+                    <a href="#"><i class="fas fa-user-circle"></i> Account</a>
+                    <a href="#"><i class="fas fa-question-circle"></i> Help Centre</a>
+                    <div class="profile-divider"></div>
+                    <a href="#" class="signout-link">Sign out of Netflix</a>
+                </div>
+            </div>
         </div>
     </header>
 
-    <section class="hero" id="home">
+    <!-- ========== HERO SECTION ========== -->
+    <section class="hero" id="home" aria-label="Featured content: The Matrix Resurrections">
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=1920&q=80" alt="" class="hero-bg-img" aria-hidden="true">
+            <div class="hero-vignette-left"></div>
+            <div class="hero-fade-bottom"></div>
+        </div>
         <div class="hero-content">
-            <h1 class="hero-title">The Matrix Resurrections</h1>
+            <div class="hero-logo-title">
+                <h1 class="hero-title">THE MATRIX RESURRECTIONS</h1>
+            </div>
+            <div class="hero-meta">
+                <span class="hero-match"><i class="fas fa-thumbs-up"></i> 97% Match</span>
+                <span class="hero-year">2021</span>
+                <span class="hero-rating">U/A 16+</span>
+                <span class="hero-seasons">1h 28m</span>
+                <span class="hero-quality"><img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 16'><rect width='36' height='16' rx='2' fill='%23fff'/><text x='18' y='12' font-size='9' font-weight='bold' text-anchor='middle' fill='%23000' font-family='Arial'>HD</text></svg>" alt="HD" class="quality-badge"></span>
+            </div>
             <p class="hero-description">
                 Return to a world of two realities: one, everyday life; the other, what lies behind it. To find out if his reality is a construct, to truly know himself, Mr. Anderson will have to choose to follow the white rabbit once more.
             </p>
             <div class="hero-buttons">
-                <button type="button" class="btn btn-play" id="play-btn"><i class="fas fa-play"></i> Play</button>
-                <button type="button" class="btn btn-info" id="info-btn"><i class="fas fa-info-circle"></i> More Info</button>
+                <button type="button" class="btn btn-play" id="play-btn">
+                    <i class="fas fa-play"></i> Play
+                </button>
+                <button type="button" class="btn btn-info" id="info-btn">
+                    <i class="fas fa-info-circle"></i> More Info
+                </button>
             </div>
         </div>
-        <div class="hero-fade-bottom"></div>
+        <div class="hero-maturity">
+            <span class="maturity-badge">16+</span>
+        </div>
     </section>
 
-    <main class="main-content">
-        
-        <div class="row" id="top-picks">
+    <!-- ========== MAIN CONTENT ========== -->
+    <main class="main-content" id="main-content">
+
+        <section class="row" id="top-picks" aria-label="Today's Top Picks">
             <h2 class="row-title">Today's Top Picks for You</h2>
             <div class="carousel-container">
-                <button type="button" class="handle left-handle"><i class="fas fa-chevron-left"></i></button>
-                <div class="carousel" id="carousel-top-picks">
-                    </div>
-                <button type="button" class="handle right-handle"><i class="fas fa-chevron-right"></i></button>
+                <button type="button" class="handle left-handle" aria-label="Scroll left"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel" id="carousel-top-picks" role="list"></div>
+                <button type="button" class="handle right-handle" aria-label="Scroll right"><i class="fas fa-chevron-right"></i></button>
             </div>
-        </div>
+        </section>
 
-        <div class="row" id="continue-watching">
+        <section class="row top10-row" id="top10" aria-label="Top 10 in India Today">
+            <h2 class="row-title">Top 10 in India Today</h2>
+            <div class="carousel-container">
+                <button type="button" class="handle left-handle" aria-label="Scroll left"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel" id="carousel-top10" role="list"></div>
+                <button type="button" class="handle right-handle" aria-label="Scroll right"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <section class="row" id="continue-watching" aria-label="Continue Watching">
             <h2 class="row-title">Continue Watching for feyazkhan8800</h2>
             <div class="carousel-container">
-                <button type="button" class="handle left-handle"><i class="fas fa-chevron-left"></i></button>
-                <div class="carousel" id="carousel-continue">
-                    </div>
-                <button type="button" class="handle right-handle"><i class="fas fa-chevron-right"></i></button>
+                <button type="button" class="handle left-handle" aria-label="Scroll left"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel" id="carousel-continue" role="list"></div>
+                <button type="button" class="handle right-handle" aria-label="Scroll right"><i class="fas fa-chevron-right"></i></button>
             </div>
-        </div>
+        </section>
 
-        <div class="row" id="watch-party">
+        <section class="row" id="new-releases" aria-label="New Releases">
+            <h2 class="row-title">New Releases</h2>
+            <div class="carousel-container">
+                <button type="button" class="handle left-handle" aria-label="Scroll left"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel" id="carousel-new" role="list"></div>
+                <button type="button" class="handle right-handle" aria-label="Scroll right"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <section class="row" id="watch-party" aria-label="Watch Party Picks">
             <h2 class="row-title">Watch-Party Picks to Get the Crew Talking</h2>
             <div class="carousel-container">
-                <button type="button" class="handle left-handle"><i class="fas fa-chevron-left"></i></button>
-                <div class="carousel" id="carousel-party">
-                    </div>
-                <button type="button" class="handle right-handle"><i class="fas fa-chevron-right"></i></button>
+                <button type="button" class="handle left-handle" aria-label="Scroll left"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel" id="carousel-party" role="list"></div>
+                <button type="button" class="handle right-handle" aria-label="Scroll right"><i class="fas fa-chevron-right"></i></button>
             </div>
-        </div>
+        </section>
 
-        <div class="row" id="captivating">
+        <section class="row" id="captivating" aria-label="Completely Captivating">
             <h2 class="row-title">So Completely Captivating</h2>
             <div class="carousel-container">
-                <button type="button" class="handle left-handle"><i class="fas fa-chevron-left"></i></button>
-                <div class="carousel" id="carousel-captivating">
-                    </div>
-                <button type="button" class="handle right-handle"><i class="fas fa-chevron-right"></i></button>
+                <button type="button" class="handle left-handle" aria-label="Scroll left"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel" id="carousel-captivating" role="list"></div>
+                <button type="button" class="handle right-handle" aria-label="Scroll right"><i class="fas fa-chevron-right"></i></button>
             </div>
-        </div>
+        </section>
 
-        <div class="row" id="anime">
+        <section class="row" id="anime" aria-label="Anime Series">
             <h2 class="row-title">Anime Series</h2>
             <div class="carousel-container">
-                <button type="button" class="handle left-handle"><i class="fas fa-chevron-left"></i></button>
-                <div class="carousel" id="carousel-anime">
-                    </div>
-                <button type="button" class="handle right-handle"><i class="fas fa-chevron-right"></i></button>
+                <button type="button" class="handle left-handle" aria-label="Scroll left"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel" id="carousel-anime" role="list"></div>
+                <button type="button" class="handle right-handle" aria-label="Scroll right"><i class="fas fa-chevron-right"></i></button>
             </div>
-        </div>
+        </section>
 
-        <div class="row" id="gems">
+        <section class="row" id="gems" aria-label="Gems for You">
             <h2 class="row-title">Gems for You</h2>
             <div class="carousel-container">
-                <button type="button" class="handle left-handle"><i class="fas fa-chevron-left"></i></button>
-                <div class="carousel" id="carousel-gems">
-                    </div>
-                <button type="button" class="handle right-handle"><i class="fas fa-chevron-right"></i></button>
+                <button type="button" class="handle left-handle" aria-label="Scroll left"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel" id="carousel-gems" role="list"></div>
+                <button type="button" class="handle right-handle" aria-label="Scroll right"><i class="fas fa-chevron-right"></i></button>
             </div>
-        </div>
+        </section>
 
     </main>
 
+    <!-- ========== FOOTER ========== -->
     <footer class="site-footer">
-        <p>Questions? Call 000-800-040-1843</p>
+        <p class="footer-social">
+            <a href="#" aria-label="Netflix on Facebook"><i class="fab fa-facebook-square"></i></a>
+            <a href="#" aria-label="Netflix on Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Netflix on Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Netflix on YouTube"><i class="fab fa-youtube"></i></a>
+        </p>
         <div class="footer-links">
-            <a href="#">FAQ</a>
+            <a href="#">Audio Description</a>
             <a href="#">Help Centre</a>
-            <a href="#">Account</a>
+            <a href="#">Gift Cards</a>
             <a href="#">Media Centre</a>
             <a href="#">Investor Relations</a>
             <a href="#">Jobs</a>
-            <a href="#">Ways to Watch</a>
             <a href="#">Terms of Use</a>
             <a href="#">Privacy</a>
+            <a href="#">Legal Notices</a>
             <a href="#">Cookie Preferences</a>
             <a href="#">Corporate Information</a>
             <a href="#">Contact Us</a>
         </div>
-        <p>&copy; 1997-2026 Netflix Clone, Inc.</p>
+        <div class="footer-service-code">
+            <button type="button" class="service-code-btn">Service Code</button>
+        </div>
+        <p class="footer-copyright">&copy; 1997–2026 Netflix, Inc.</p>
     </footer>
+
+    <!-- ========== MOVIE DETAIL MODAL ========== -->
+    <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal" id="modal">
+            <button class="modal-close" id="modal-close" aria-label="Close"><i class="fas fa-times"></i></button>
+            <div class="modal-hero">
+                <img src="" alt="" class="modal-hero-img" id="modal-hero-img">
+                <div class="modal-hero-fade"></div>
+                <div class="modal-hero-content">
+                    <h2 class="modal-title" id="modal-title">Movie Title</h2>
+                    <div class="modal-hero-buttons">
+                        <button class="btn btn-play"><i class="fas fa-play"></i> Play</button>
+                        <button class="btn btn-icon" aria-label="Add to My List"><i class="fas fa-plus"></i></button>
+                        <button class="btn btn-icon" aria-label="Rate"><i class="fas fa-thumbs-up"></i></button>
+                        <button class="btn btn-icon btn-share" aria-label="Share"><i class="fas fa-share"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-left">
+                    <div class="modal-meta">
+                        <span class="modal-match">98% Match</span>
+                        <span class="modal-year">2024</span>
+                        <span class="modal-rating-badge">U/A 16+</span>
+                        <span class="modal-runtime">2h 14m</span>
+                        <span class="modal-hd">HD</span>
+                    </div>
+                    <p class="modal-description" id="modal-description">A thrilling adventure across multiple dimensions.</p>
+                </div>
+                <div class="modal-right">
+                    <p><span class="modal-label">Cast:</span> Actor One, Actor Two, Actor Three</p>
+                    <p><span class="modal-label">Genres:</span> Action, Thriller, Sci-Fi</p>
+                    <p><span class="modal-label">This show is:</span> Exciting, Mind-bending, Dark</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== TOOLTIP HOVER CARD ========== -->
+    <div class="tooltip-card" id="tooltip-card" aria-hidden="true">
+        <div class="tooltip-thumb-wrap">
+            <img src="" alt="" class="tooltip-thumb" id="tooltip-thumb">
+        </div>
+        <div class="tooltip-body">
+            <div class="tooltip-actions">
+                <button class="tooltip-btn tooltip-play" aria-label="Play"><i class="fas fa-play"></i></button>
+                <button class="tooltip-btn" aria-label="Add to My List"><i class="fas fa-plus"></i></button>
+                <button class="tooltip-btn" aria-label="Rate"><i class="fas fa-thumbs-up"></i></button>
+                <button class="tooltip-btn tooltip-chevron" id="tooltip-more" aria-label="More info"><i class="fas fa-chevron-down"></i></button>
+            </div>
+            <div class="tooltip-meta">
+                <span class="tooltip-match">97% Match</span>
+                <span class="tooltip-rating">16+</span>
+                <span class="tooltip-hd">HD</span>
+            </div>
+            <div class="tooltip-genres" id="tooltip-genres">Action &bull; Sci-Fi &bull; Thriller</div>
+        </div>
+    </div>
 
     <script src="js/script.js"></script>
 </body>
