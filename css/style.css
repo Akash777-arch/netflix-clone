@@ -1139,7 +1139,13 @@ body.modal-open {
     :root { --nav-height: 58px; }
     .logo-svg { width: 72px; }
     .hero { height: 75vh; align-items: flex-end; }
-    .hero-content { max-width: 100%; padding: 0 4% 8vh; }
+    
+    /* FIX: Increased bottom padding from 8vh to 14vh to push buttons up */
+    .hero-content { max-width: 100%; padding: 0 4% 14vh; }
+    
+    /* FIX: Reduced the negative margin so the rows don't pull up as far */
+    .main-content { margin-top: -20px; }
+
     .hero-title { font-size: 1.8rem; }
     .hero-description { font-size: 0.85rem; display: none; }
     .hero-maturity { display: none; }
